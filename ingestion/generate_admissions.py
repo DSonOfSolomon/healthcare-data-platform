@@ -3,8 +3,10 @@ import numpy as np
 from datetime import datetime, timedelta
 import uuid
 import random
+import config
 
-NUM_RECORDS = 500
+
+NUM_RECORDS = config.NUM_ADMISSIONS
 
 hospitals = ["HOSP01", "HOSP02", "HOSP03"]
 departments = ["Emergency", "Cardiology", "Surgery", "ICU"]
@@ -34,7 +36,7 @@ def generate_admissions():
     df = pd.DataFrame(records)
 
     df.to_csv(
-        "data/raw/patient_admissions.csv",
+        f"{config.RAW_DATA_PATH}patient_admissions.csv",
         index=False
     )
 

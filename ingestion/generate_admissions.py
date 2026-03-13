@@ -6,6 +6,13 @@ import random
 import config
 
 
+
+
+patients_df = pd.read_csv("data/raw/patients.csv")
+
+patient_ids = patients_df["patient_id"].tolist()
+
+
 NUM_RECORDS = config.NUM_ADMISSIONS
 
 hospitals = ["HOSP01", "HOSP02", "HOSP03"]
@@ -23,7 +30,7 @@ def generate_admissions():
 
         record = {
             "admission_id": str(uuid.uuid4()),
-            "patient_id": f"P{random.randint(1000,9999)}",
+            "patient_id": random.choice(patient_ids),
             "hospital_id": random.choice(hospitals),
             "department": random.choice(departments),
             "admission_time": admission_time,
@@ -36,7 +43,7 @@ def generate_admissions():
     df = pd.DataFrame(records)
 
     df.to_csv(
-        f"{config.RAW_DATA_PATH}patient_admissions.csv",
+        f"{config.RAW_DATA_PATH}/patient_admissions.csv",
         index=False
     )
 

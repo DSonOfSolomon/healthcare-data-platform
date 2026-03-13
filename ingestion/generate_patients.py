@@ -24,6 +24,7 @@ for _ in range(NUM_PATIENTS):
 
         "birth_year": random.randint(1940, 2022),
 
+
         "region": random.choice(regions)
     }
 

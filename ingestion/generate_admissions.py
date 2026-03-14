@@ -14,10 +14,11 @@ patient_ids = patients_df["patient_id"].tolist()
 hospitals_df =pd.read_csv("data/raw/hospitals.csv")
 hospital_ids = hospitals_df["hospital_id"].tolist()
 
+departments_df = pd.read_csv("data/raw/departments.csv")
+department_ids = departments_df["department_id"].tolist()
 
 NUM_RECORDS = config.NUM_ADMISSIONS
 
-departments = ["Emergency", "Cardiology", "Surgery", "ICU"]
 
 def generate_admissions():
 
@@ -33,7 +34,7 @@ def generate_admissions():
             "admission_id": str(uuid.uuid4()),
             "patient_id": random.choice(patient_ids),
             "hospital_id": random.choice(hospital_ids),
-            "department": random.choice(departments),
+            "department": random.choice(department_ids),
             "admission_time": admission_time,
             "admission_type": random.choice(["emergency","scheduled"]),
             "created_at": datetime.now()

@@ -1,0 +1,5 @@
+hospital_id,hospital_name,city,capacity
+HOSP01,North General Hospital,Manchester,450
+HOSP02,City Medical Centre,London,620
+HOSP03,Riverside Hospital,Birmingham,380
+HOSP04,St Mary’s Medical,Leeds,510
